@@ -27,6 +27,16 @@ our %SPEC;
 
 $SPEC{grep_perl_release} = {
     v => 1.1,
+    summary => 'Grep Perl module release tarball name from text',
+    description => <<'_',
+
+The utility displays lines from input which resemble Perl module release tarball
+name (e.g. Bar-Qux-2.34.tar.gz, but not Bar-Qux-2.34 or Bar-Qux or Bar::Qux).
+
+    % echo -e "First line\nSecond line has Foo-Bar\nThird line has Foo-Bar-1.23\nBaz-Qux-2.34.tar.gz" | grep-perl-release
+    Baz-Qux-2.34.tar.gz
+
+_
     args => {
         include_latest_versions => {
             summary => "Only include latest N version(s) of each dist",
